@@ -4,8 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>一覧ページ</h1>
-      <a href="{{ route('posts.create') }}" class="btn btn-primary">新規投稿</a>
+      <h1>新規投稿ページ</h1>
       <div class="card text-center">
         <div class="card-header">
           Blogs

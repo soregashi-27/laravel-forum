@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index');
-        //post.dirのindex.blade.phpが表示される
+        //post.dirのindex.blade.phpが表示される　
     }
 
     /**
@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
