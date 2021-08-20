@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/test', 'TestController@test')->name('test');
+// Routingのテスト画面を表示
+
 Route::resource('posts', 'PostController');
 
 Route::resource('comments', 'CommentController');
