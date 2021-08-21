@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
-use Auth;
 use App\Post;
+use Auth;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -13,9 +13,9 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
+
     // ログイン認証処理
-    
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -42,28 +42,28 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
     {
         // dd($request); //debug
         //(Auth::user()); // login中のUser情報が取れる
-         
+
         $post = new Post; // newする_Instanceを作成する
-        $post -> title = $request -> title;
-        $post -> body = $request -> body;
-        $post -> user_id = Auth::id();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->user_id = Auth::id();
         $post->timestamps = false; //一時追加（timestampなしで検証）
 
-        $post -> save(); //Instanceを保存する
+        $post->save(); //Instanceを保存する
         return redirect()->route('posts.index'); // web.phpで設定してるPostControllerにとんで表示させようとしてるviewファイルが動く
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -77,7 +77,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -90,35 +90,32 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
-        $post -> title = $request -> title;
-        $post -> body = $request -> body;
+        $post->title = $request->title;
+        $post->body = $request->body;
         $post->timestamps = false; //一時追加（timestampなしで検証）
 
-        $post -> save(); //Instanceを保存する
+        $post->save(); //Instanceを保存する
         return redirect()->route('posts.index'); // web.phpで設定してるPostControllerにとんで表示させようとしてるviewファイルが動く
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $post = Post::find($id);
-
         $post->delete();
 
         return redirect()->route('posts.index');
-
     }
 }
