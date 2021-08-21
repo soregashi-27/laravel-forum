@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Auth;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -36,7 +38,17 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        dd($request);
+        // dd($request); //debug
+        //(Auth::user()); // login中のUser情報が取れる
+         
+        $post = new Post; // newする_Instanceを作成する
+        $post -> title = $request -> title;
+        $post -> body = $request -> body;
+        $post -> user_id = Auth::id();
+        $post->timestamps = false; //一時追加
+
+        $post -> save(); //Instanceを保存する
+        return redirect()->route('posts.index'); // web.phpで設定してるPostControllerにとんで表示させようとしてるviewファイルが動く
     }
 
     /**
