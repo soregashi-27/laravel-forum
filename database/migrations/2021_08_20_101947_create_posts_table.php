@@ -18,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id'); //外部キー（他テーブルのIDを参照）
             $table->string('title');
             $table->string('body');
-
+            $table->timestamps();
+            
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
