@@ -12,7 +12,8 @@ php artisan route:clear
 php artisan view:clear
 ```
 
-コード整形
+コード整形 \
+コード整形時は独自にbranchを切ること！
 ```
 ./vendor/bin/php-cs-fixer fix -v --diff --diff-format udiff
 ```
