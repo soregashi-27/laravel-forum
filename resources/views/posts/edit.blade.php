@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
           <label>内容</label>
-          <textarea class="form-control" placeholder="内容" rows="5" name="body"></textarea>
+          <textarea class="form-control" placeholder="内容" rows="5" name="body">{{$post->body}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">作成する</button>
       </form>
