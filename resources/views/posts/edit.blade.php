@@ -18,7 +18,7 @@
         @csrf
         <div class="form-group">
           <label>タイトル</label>
-          <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title">
+          <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title" value="{{$post->title}}">
         </div>
         <div class="form-group">
           <label>内容</label>
