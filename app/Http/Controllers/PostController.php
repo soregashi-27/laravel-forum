@@ -37,7 +37,7 @@ class PostController extends Controller
     public function create()
     {
         return view('posts.create');
-    } 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -68,7 +68,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id); // idを表示
+        $post = Post::find($id);
+
+        return view('posts.show', compact('post'));
     }
 
     /**
