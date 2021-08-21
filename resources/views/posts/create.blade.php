@@ -1,10 +1,11 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form action="{{ route('posts.store') }}" method="POST">
-        {{csrf_field()}}
+      <form action="{{ route('posts.store') }}" method="post">
+        @csrf
         <div class="form-group">
           <label>タイトル</label>
           <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title">

@@ -26,4 +26,4 @@ Route::get('/posts', 'PostController@index')->name('post.index');
 
 Route::get('/posts/create', 'PostController@create')->name('posts.create');
 
-Route::get('/posts/', 'PostController@store')->name('posts.store');
+Route::post('/posts', 'PostController@store')->name('posts.store');
