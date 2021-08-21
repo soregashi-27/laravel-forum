@@ -13,8 +13,8 @@
         <div class="card-body">
           <h5 class="card-title">タイトル：{{ $post->title}}</h5>
           <p class="card-text">内容：{{$post->body}}</p>
-          <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集画面へ</a>
           @if( $post->user_id === Auth::id() )
+          <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集画面へ</a>
           <form action="{{ route('posts.destroy', $post->id)}}" method='post'>
             @csrf
             {{ method_field('DELETE') }}
