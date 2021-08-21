@@ -10,15 +10,16 @@
         <div class="card-header">
           Blogs
         </div>
+        @foreach ($posts as $post)
         <div class="card-body">
-          <h5 class="card-title">タイトル</h5>
-          <p class="card-text">内容：</p>
+          <h5 class="card-title">タイトル：{{ $post->title}}</h5>
+          <p class="card-text">内容：{{$post->body}}</p>
           <a href="#" class="btn btn-primary">詳細</a>
         </div>
         <div class="card-footer text-muted">
           投稿日：
         </div>
-
+        @endforeach
       </div>
     </div>
   </div>

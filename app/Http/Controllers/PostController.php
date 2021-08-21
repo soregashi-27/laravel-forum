@@ -9,6 +9,13 @@ use App\Post;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    // ログイン認証処理
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +23,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
-        //post.dirのindex.blade.phpが表示される　
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
+        //post.dirのindex.blade.phpが表示される
     }
 
     /**
@@ -45,7 +54,7 @@ class PostController extends Controller
         $post -> title = $request -> title;
         $post -> body = $request -> body;
         $post -> user_id = Auth::id();
-        $post->timestamps = false; //一時追加
+        $post->timestamps = false; //一時追加（timestampなしで検証）
 
         $post -> save(); //Instanceを保存する
         return redirect()->route('posts.index'); // web.phpで設定してるPostControllerにとんで表示させようとしてるviewファイルが動く
