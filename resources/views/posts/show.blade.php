@@ -14,6 +14,11 @@
           <h5 class="card-title">タイトル：{{ $post->title}}</h5>
           <p class="card-text">内容：{{$post->body}}</p>
           <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集画面へ</a>
+          <form action="{{ route('posts.destroy', $post->id)}}" method='post'>
+            @csrf
+            {{ method_field('DELETE') }}
+            <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("削除しますか？？");'>
+          </form>
         </div>
         <div class="card-footer text-muted">
           投稿日：

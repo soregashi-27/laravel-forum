@@ -19,7 +19,7 @@ class PostRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array　　
+     * @return array
      */
     public function rules()
     {
@@ -29,11 +29,12 @@ class PostRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return [
             'title.required' => 'タイトルは必須です。',
             'title.max' => 'タイトルは20文字以内で記入してください。',
-            'body.required' => '内容は必須です。'
+            'body.required' => '内容は必須です。',
         ];
     }
 }
