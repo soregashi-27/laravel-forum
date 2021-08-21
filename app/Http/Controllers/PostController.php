@@ -97,6 +97,11 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
+
+        if(Auth::id() !== $post->user_id) {
+            return abort(404);
+        }
+        
         $post->title = $request->title;
         $post->body = $request->body;
         $post->timestamps = false; //一時追加（timestampなしで検証）
@@ -114,6 +119,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        if(Auth::id() !== $post->user_id) {
+            return abort(404);
+        }
+
         $post->delete();
 
         return redirect()->route('posts.index');
