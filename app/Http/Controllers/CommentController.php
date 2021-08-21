@@ -32,6 +32,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $comment = new Comment;
+        $commment->body = $request->body;
+        $commment->user_id = Auth::id();
+        $commment->post_id = $request->post_id;
+
     }
 
     /**
