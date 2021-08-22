@@ -40,6 +40,12 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
 
+        $comment->save();
+
+        $post = Post::find($request->post_id);
+
+        return view('posts.show', compact('post'));
+
     }
 
     /**
