@@ -28,5 +28,18 @@
       </div>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="{{ route('comments.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="post_id" value="{{ $post->id }}">
+        <div class="form-group">
+          <label>コメント</label>
+          <textarea class="form-control" placeholder="内容" rows="5" name="body"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">コメントする</button>
+      </form>
+    </div>
+  </div>
 </div>
 @endsection
