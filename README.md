@@ -1,3 +1,28 @@
+環境構築
+
+```
+composer create-project --prefer-dist laravel/laravel foundation "6.*"
+```
+
+初期設定
+laravel6で最新のlaravel uiを入れる場合はこちら（行ったときは1.3.0が最新だった）
+```
+composer require laravel/ui:1.3.0 --dev
+```
+公式ドキュメントが設定しているこのやり方ではできなかったので注意。
+```
+composer require laravel/ui:^1.0 --dev
+zsh: no matches found: laravel/ui:^1.0
+```
+php-cs-fixer v2（2.19.1）でコード整形
+```
+./vendor/bin/php-cs-fixer fix -v --diff --diff-format udiff
+```
+Routingの確認
+```
+php artisan route:list
+```
+
 基本的なキャッシュクリアコマンドリスト
 
 ```
